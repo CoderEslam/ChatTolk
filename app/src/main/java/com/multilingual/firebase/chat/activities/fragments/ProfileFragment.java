@@ -147,7 +147,6 @@ public class ProfileFragment extends BaseFragment implements View.OnClickListene
                     strDescription = user.getAbout();
                     txtAbout.setText(Utils.isEmpty(strDescription) ? mActivity.getString(R.string.strAboutStatus) : strDescription);
                     txtGender.setText(Utils.isEmpty(strGender) ? mActivity.getString(R.string.strUnspecified) : strGender);
-
                     Utils.setProfileImage(getContext(), user.getImageURL(), imgAvatar);
                 }
             }

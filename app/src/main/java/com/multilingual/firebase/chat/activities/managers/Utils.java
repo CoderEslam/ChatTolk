@@ -1,5 +1,6 @@
 package com.multilingual.firebase.chat.activities.managers;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -329,15 +330,13 @@ public class Utils {
 
     public static void setProfileImage(Context context, String imgUrl, ImageView mImageView) {
         try {
-
             if (!imgUrl.equalsIgnoreCase(IMG_DEFAULTS)) {
-
                 Picasso.get().load(imgUrl).fit().placeholder(R.drawable.profile_avatar).into(mImageView);
             } else {
-
                 Picasso.get().load(R.drawable.profile_avatar).fit().into(mImageView);
             }
         } catch (Exception e) {
+            Log.e("Utils Exception 338 ", e.getMessage().toString());
         }
     }
 
@@ -603,6 +602,7 @@ public class Utils {
             Vibrator vib = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
             // Vibrate for 500 milliseconds
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
                 vib.vibrate(VibrationEffect.createOneShot(DEFAULT_VIBRATE, VibrationEffect.DEFAULT_AMPLITUDE));
             } else {
                 //deprecated in API 26
